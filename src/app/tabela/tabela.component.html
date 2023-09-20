@@ -18,8 +18,8 @@
       <input matInput (input)="applyFilter($event)" placeholder="Filter">
     </mat-form-field>
   </div>
-  <div class="tabela">
-    <table mat-table [dataSource]="dataSource" class="tabela mat-elevation-z8 demo-table" matSort>
+  <div class="tabela" #matTable>
+    <table mat-table #matTable [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
       <!-- Id Column -->
       <ng-container matColumnDef="matricula">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Matricula</th>
@@ -49,5 +49,10 @@
     </table>
   </div>
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+  <button mat-raised-button (click)="exportToPDF()" class="demo-button">
+  Export to PDF
+  </button>
+
 
 </div>

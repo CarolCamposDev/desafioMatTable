@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, ElementRef} from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -8,6 +8,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export interface StudentData {
   matricula: number;
@@ -53,7 +55,7 @@ export class TabelaComponent  {
   displayedColumns: string[] = ['matricula', 'aluno', 'curso', 'nota'];
   dataSource = new MatTableDataSource<StudentData>(ELEMENT_DATA);
 
-
+  @ViewChild('matTable', { static: false }) matTable: ElementRef;
   @ViewChild(MatTable) table: MatTable<StudentData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -81,6 +83,32 @@ export class TabelaComponent  {
   removeData() {
     this.dataSource.data.pop();
     this.table.renderRows();
+  }
+
+  exportToPDF() {
+    const doc = new jspdf.jsPDF();
+    const content = this.matTable.nativeElement;
+
+    html2canvas(content).then(canvas => {
+      const imageData = canvas.toDataURL('image/png');
+      const imgWidth = 210; // Largura da página em mm (A4)
+      const pageHeight = 297; // Altura da página em mm (A4)
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+
+      doc.addImage(imageData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        doc.addPage();
+        doc.addImage(imageData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      doc.save('boletim.pdf'); 
+    });
   }
 
 }
