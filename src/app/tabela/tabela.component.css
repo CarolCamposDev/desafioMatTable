@@ -1,0 +1,40 @@
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+/* table-dynamic-array-data-example.css */
+
+/* Estilo para os botões */
+.demo-button {
+  background-color: #424242; /* Cor de fundo azul */
+  color: #fff; /* Cor do texto branca */
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Borda arredondada */
+  cursor: pointer; /* Cursor de mão ao passar o mouse */
+  font-size: 16px; /* Tamanho da fonte */
+  margin-right: 10px; /* Espaçamento à direita entre os botões */
+  margin-bottom: 10px; 
+  margin-top: 10px;
+}
+
+/* Estilizar botão desativado */
+.demo-button:disabled {
+  background-color: #ccc; /* Cor de fundo cinza para botão desativado */
+  cursor: not-allowed; /* Cursor de não permitido para botão desativado */
+}
+
+/* Efeito de hover para botões */
+.demo-button:hover {
+  background-color: #727578; /* Cor de fundo mais escura ao passar o mouse */
+}
+

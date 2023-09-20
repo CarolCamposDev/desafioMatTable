@@ -6,15 +6,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabelaComponent } from './tabela/tabela.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    TabelaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    TabelaComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
