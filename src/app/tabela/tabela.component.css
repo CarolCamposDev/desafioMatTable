@@ -1,5 +1,5 @@
 .table-container {
-  background: rgb(78,32,158);
+  background: rgb(95, 94, 98);
   background: linear-gradient(90deg, rgba(78,32,158,1) 0%, rgba(104,88,246,1) 100%);
   border-radius: 30px;
   display: flex;
@@ -54,5 +54,11 @@ mat-paginator {
 /* Efeito de hover para botões */
 .demo-button:hover {
   background-color: #727578; /* Cor de fundo mais escura ao passar o mouse */
+}
+
+/* Adicione uma classe para realçar a linha selecionada */
+.selected-row {
+  background-color: #a8a8a8;
+  cursor: pointer;
 }
 

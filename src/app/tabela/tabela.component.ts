@@ -11,6 +11,9 @@ import { MatSortModule } from '@angular/material/sort';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 
+import { MatDialog } from '@angular/material/dialog';
+import { AlunoDetalhesComponent } from '../aluno-detalhes/aluno-detalhes.component';
+
 export interface StudentData {
   matricula: number;
   aluno: string;
@@ -51,7 +54,12 @@ const ELEMENT_DATA: StudentData[] = [
   imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
 })
 export class TabelaComponent  {
-  
+  selectedRowIndex: number = -1; // Inicialmente, nenhum índice de linha está selecionado
+    onRowHover(index: number) {
+    // Define o índice da linha quando o mouse entra ou sai da linha
+    this.selectedRowIndex = index;
+  } 
+
   displayedColumns: string[] = ['matricula', 'aluno', 'curso', 'nota'];
   dataSource = new MatTableDataSource<StudentData>(ELEMENT_DATA);
 
@@ -59,6 +67,9 @@ export class TabelaComponent  {
   @ViewChild(MatTable) table: MatTable<StudentData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
+  constructor(private dialog: MatDialog) { // Injete o MatDialog no construtor
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -107,8 +118,18 @@ export class TabelaComponent  {
         heightLeft -= pageHeight;
       }
 
-      doc.save('boletim.pdf'); 
+      doc.save('boletim.pdf');
     });
+  }
+
+  abrirDetalhesAluno(aluno: StudentData): void {
+    const dialogRef = this.dialog.open(AlunoDetalhesComponent, {
+      width: '300px',
+      data: aluno,
+    });
+
+    // Defina o índice da linha selecionada para o índice da linha clicada
+    this.selectedRowIndex = this.dataSource.data.indexOf(aluno);
   }
 
 }
