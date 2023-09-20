@@ -1,28 +1,46 @@
-table {
-  width: 100%;
+.table-container {
+  background: rgb(78,32,158);
+  background: linear-gradient(90deg, rgba(78,32,158,1) 0%, rgba(104,88,246,1) 100%);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Centraliza o conteúdo horizontalmente */
+  margin: 10px; /* Espaçamento em torno do container */
 }
 
-.mat-mdc-form-field {
-  font-size: 14px;
-  width: 100%;
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px; 
+  color: #fff;
+  margin-top: 10px;
 }
 
-td, th {
-  width: 25%;
+.tabela {
+  width: 80%;
+  margin: 0 auto; /* Isso centralizará a tabela horizontalmente */
 }
 
-/* table-dynamic-array-data-example.css */
+mat-paginator {
+  width: 80%;
+}
+
+.filter-container {
+  border-radius: 30px;
+  align-items: end;
+}
 
 /* Estilo para os botões */
 .demo-button {
-  background-color: #424242; /* Cor de fundo azul */
-  color: #fff; /* Cor do texto branca */
-  padding: 10px 20px; /* Espaçamento interno */
-  border: none; /* Sem borda */
-  border-radius: 5px; /* Borda arredondada */
-  cursor: pointer; /* Cursor de mão ao passar o mouse */
-  font-size: 16px; /* Tamanho da fonte */
-  margin-right: 10px; /* Espaçamento à direita entre os botões */
+  background-color: #424242; 
+  color: #fff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  margin-right: 10px; 
   margin-bottom: 10px; 
   margin-top: 10px;
 }

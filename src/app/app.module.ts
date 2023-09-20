@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabelaComponent } from './tabela/tabela.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { TabelaComponent } from './tabela/tabela.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
-    TabelaComponent
+    TabelaComponent, 
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

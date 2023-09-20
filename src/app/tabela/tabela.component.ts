@@ -10,18 +10,35 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
 export interface StudentData {
-  id: number;
+  matricula: number;
   aluno: string;
   curso: string;
   nota: number;
 }
 
 const ELEMENT_DATA: StudentData[] = [
-  { id: 1, aluno: 'João', curso: 'Matemática', nota: 8.5 },
-  { id: 2, aluno: 'Maria', curso: 'Física', nota: 7.2 },
-  { id: 3, aluno: 'Pedro', curso: 'Química', nota: 9.0 },
-  { id: 4, aluno: 'Ana', curso: 'Biologia', nota: 6.8 },
-  { id: 5, aluno: 'Lucas', curso: 'História', nota: 7.5 },
+  { matricula: 1, aluno: 'João', curso: 'Matemática', nota: 8.5 },
+  { matricula: 2, aluno: 'Maria', curso: 'Física', nota: 7.2 },
+  { matricula: 3, aluno: 'Pedro', curso: 'Química', nota: 9.0 },
+  { matricula: 4, aluno: 'Ana', curso: 'Biologia', nota: 6.8 },
+  { matricula: 5, aluno: 'Lucas', curso: 'História', nota: 7.5 },
+  { matricula: 6, aluno: 'Mariana', curso: 'Geografia', nota: 8.2 },
+  { matricula: 7, aluno: 'Carlos', curso: 'Inglês', nota: 9.5 },
+  { matricula: 8, aluno: 'Isabela', curso: 'Artes', nota: 8.0 },
+  { matricula: 9, aluno: 'Rafael', curso: 'Educação Física', nota: 7.7 },
+  { matricula: 10, aluno: 'Larissa', curso: 'História', nota: 7.9 },
+  { matricula: 11, aluno: 'Anderson', curso: 'Matemática', nota: 8.3 },
+  { matricula: 12, aluno: 'Juliana', curso: 'Inglês', nota: 9.1 },
+  { matricula: 13, aluno: 'Felipe', curso: 'Biologia', nota: 6.5 },
+  { matricula: 14, aluno: 'Cristina', curso: 'Química', nota: 8.8 },
+  { matricula: 15, aluno: 'Marcos', curso: 'Física', nota: 7.0 },
+  { matricula: 16, aluno: 'Tatiana', curso: 'Educação Física', nota: 8.7 },
+  { matricula: 17, aluno: 'Rodrigo', curso: 'Geografia', nota: 7.4 },
+  { matricula: 18, aluno: 'Camila', curso: 'Artes', nota: 8.4 },
+  { matricula: 19, aluno: 'Antônio', curso: 'História', nota: 7.3 },
+  { matricula: 20, aluno: 'Amanda', curso: 'Matemática', nota: 8.6 },
+  { matricula: 21, aluno: 'Fernanda', curso: 'Biologia', nota: 6.3 },
+  { matricula: 22, aluno: 'Renato', curso: 'Física', nota: 7.8 },
 ];
 
 @Component({
@@ -32,8 +49,10 @@ const ELEMENT_DATA: StudentData[] = [
   imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
 })
 export class TabelaComponent  {
-  displayedColumns: string[] = ['id', 'aluno', 'curso', 'nota'];
+  
+  displayedColumns: string[] = ['matricula', 'aluno', 'curso', 'nota'];
   dataSource = new MatTableDataSource<StudentData>(ELEMENT_DATA);
+
 
   @ViewChild(MatTable) table: MatTable<StudentData>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -63,4 +82,5 @@ export class TabelaComponent  {
     this.dataSource.data.pop();
     this.table.renderRows();
   }
+
 }
