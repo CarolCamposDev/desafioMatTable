@@ -54,10 +54,10 @@ const ELEMENT_DATA: StudentData[] = [
   imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
 })
 export class TabelaComponent  {
-  selectedRowIndex: number = -1; // Inicialmente, nenhum índice de linha está selecionado
-    onRowHover(index: number) {
-    // Define o índice da linha quando o mouse entra ou sai da linha
-    this.selectedRowIndex = index;
+  selectedRowIndex: number = -1; 
+  onRowHover(index: number) {
+  // Define o índice da linha quando o mouse entra ou sai da linha
+  this.selectedRowIndex = index;
   } 
 
   displayedColumns: string[] = ['matricula', 'aluno', 'curso', 'nota'];
@@ -68,7 +68,7 @@ export class TabelaComponent  {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private dialog: MatDialog) { // Injete o MatDialog no construtor
+  constructor(private dialog: MatDialog) { 
   }
 
   ngAfterViewInit() {
@@ -128,7 +128,7 @@ export class TabelaComponent  {
       data: aluno,
     });
 
-    // Defina o índice da linha selecionada para o índice da linha clicada
+    // Define o índice da linha selecionada para o índice da linha clicada
     this.selectedRowIndex = this.dataSource.data.indexOf(aluno);
   }
 

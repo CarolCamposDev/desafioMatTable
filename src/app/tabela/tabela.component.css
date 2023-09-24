@@ -1,25 +1,36 @@
 .table-container {
-  background: rgb(95, 94, 98);
-  background: linear-gradient(90deg, rgba(78,32,158,1) 0%, rgba(104,88,246,1) 100%);
-  border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center; /* Centraliza o conteúdo horizontalmente */
-  margin: 10px; /* Espaçamento em torno do container */
+  text-align: center; 
+  margin-top: 1px;
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 10px; 
-  color: #fff;
-  margin-top: 10px;
+.navbar {
+  background-color: #02253c; 
+  color: white; 
+  padding: 10px 0; 
+  text-align: center; 
+}
+
+.navbar-title {
+  font-size: 24px; 
+  margin: 0; 
+}
+
+.line {
+  border-top: 3px solid #26757c; 
 }
 
 .tabela {
   width: 80%;
-  margin: 0 auto; /* Isso centralizará a tabela horizontalmente */
+  margin: 0 auto; 
+}
+
+.mat-header-row {
+  background-color: #5d5b5b; 
+  font-weight: bold; 
 }
 
 mat-paginator {
@@ -31,9 +42,8 @@ mat-paginator {
   align-items: end;
 }
 
-/* Estilo para os botões */
 .demo-button {
-  background-color: #424242; 
+  background-color: #0e364a; 
   color: #fff; 
   padding: 10px 20px; 
   border: none; 
@@ -45,18 +55,17 @@ mat-paginator {
   margin-top: 10px;
 }
 
-/* Estilizar botão desativado */
+
 .demo-button:disabled {
-  background-color: #ccc; /* Cor de fundo cinza para botão desativado */
-  cursor: not-allowed; /* Cursor de não permitido para botão desativado */
+  background-color: #ccc; 
+  cursor: not-allowed; 
 }
 
-/* Efeito de hover para botões */
+
 .demo-button:hover {
-  background-color: #727578; /* Cor de fundo mais escura ao passar o mouse */
+  background-color: #727578; 
 }
 
-/* Adicione uma classe para realçar a linha selecionada */
 .selected-row {
   background-color: #a8a8a8;
   cursor: pointer;
